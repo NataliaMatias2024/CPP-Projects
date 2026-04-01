@@ -6,8 +6,9 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:27 by namatias          #+#    #+#             */
-/*   Updated: 2026/03/31 19:34:37 by namatias         ###   ########.fr       */
+/*   Updated: 2026/04/01 17:05:26 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
