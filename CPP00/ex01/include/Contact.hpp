@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:39 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/19 00:36:28 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/20 23:13:55 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Contact
 {
 	//Tudo que apenas a propria classe deve ter acesso é privado
 	private:
-		size_t		_index;
 		std::string	_firstName;
 		std::string	_lastName;
 		std::string	_nickName;
@@ -42,6 +41,7 @@ class Contact
 		std::string getSecret() const;
 
 		void	setContact();
+		void	displayContact();
 };
 
 #endif

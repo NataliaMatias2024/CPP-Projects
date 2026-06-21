@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:27 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/19 00:37:33 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/20 23:17:14 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Contact::Contact()
 {
-	_index = 0;
 }
 
 Contact::~Contact()
@@ -65,4 +64,13 @@ void	Contact::setContact()
 	std::cout << "Darkest Secret: ";
 	std::getline(std::cin, _secret);
 
+}
+
+void	Contact::displayContact()
+{
+	std::cout << "First Name: " << _firstName << std::endl;
+	std::cout << "Last Name: " << _lastName << std::endl;
+	std::cout << "Nickname: " << _nickName << std::endl;
+	std::cout << "Phone Number: " << _phoneNumber << std::endl;
+	std::cout << "Darkest Secret: " << _secret << std::endl;
 }
