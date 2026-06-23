@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:27 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/20 23:17:14 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/22 23:55:43 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ std::string Contact::getSecret() const
 
 void	Contact::setContact()
 {
-	std::cout << "Plese insert your contact informations:" << std::endl;
+	std::cout << "Please insert your contact information: " << std::endl;
 
 	std::cout << "First Name: ";
 	std::getline(std::cin, _firstName);
@@ -66,7 +66,7 @@ void	Contact::setContact()
 
 }
 
-void	Contact::displayContact()
+void	Contact::displayContact() const
 {
 	std::cout << "First Name: " << _firstName << std::endl;
 	std::cout << "Last Name: " << _lastName << std::endl;

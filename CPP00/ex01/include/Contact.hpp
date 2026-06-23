@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:39 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/20 23:13:55 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/21 14:37:33 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class Contact
 		std::string getSecret() const;
 
 		void	setContact();
-		void	displayContact();
+		void	displayContact() const;
 };
 
 #endif

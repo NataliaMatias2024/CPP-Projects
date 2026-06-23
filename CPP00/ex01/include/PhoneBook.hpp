@@ -6,28 +6,33 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:35 by namatias          #+#    #+#             */
-/*   Updated: 2026/04/04 16:12:18 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/22 23:52:52 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include "iostream"
+#include "Contact.hpp"
+#include <iostream>
+#include <string>
+#include <iomanip>
 
 class PhoneBook
 {
 	private:
-		std::string _listOfContacts[8];
-		int	_index;
-		int _totalOfContacs;
+		size_t		_index;
+		size_t		_totalOfContacts;
+		Contact		_listOfContacts[8];
 
 	public:
 		PhoneBook(); //construtor
 		~PhoneBook(); //destrutor
 
-		void	displayList(); //mostra na tela a lista de contatos (no max 8)
-
+		void	newContact(); //chama a funçao setContact, salva no index da lista
+		void	displayList(); //mostra na tela a lista de contatos (no max 8) com o truncate
+		void	displayMenu(); //mostra as opçoes para o usuário e chama as açoes
+		void	search(); //busca e mostra um contato
 };
 
 #endif
