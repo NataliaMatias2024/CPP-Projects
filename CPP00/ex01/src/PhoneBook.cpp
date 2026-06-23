@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:29:06 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/22 23:53:01 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/23 18:06:27 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,22 @@ void	PhoneBook::search()//busca e mostra um contato
 		_listOfContacts[valid_input - 1].displayContact();
 }
 
-// 		void	displayMenu(); //mostra as opçoes para o usuário e chama as açoes
+void	PhoneBook::displayMenu() //mostra as opçoes para o usuário e chama as açoes
+{
+	std::string cmd;
+
+	std::cout << "                PhoneBook" << std::endl;
+	std::cout << "Please select one option ADD, SEARCH or EXIT" << std::endl;
+	while (std::getline(std::cin, cmd))
+	{
+		if (cmd == "ADD" || cmd == "add")
+			newContact();
+		else if (cmd == "SEARCH" || cmd == "search")
+			search();
+		else if (cmd == "EXIT" || cmd == "exit")
+			return ; 
+		else
+			std::cout << "Error: " << cmd << ", is not a valid option!" << std::endl;
+		std::cout << "Please select one option ADD, SEARCH or EXIT" << std::endl;
+	}
+}
