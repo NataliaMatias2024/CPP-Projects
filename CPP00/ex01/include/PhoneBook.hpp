@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:35 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/22 23:52:52 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/24 19:24:35 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <cstdlib>
 
 class PhoneBook
 {

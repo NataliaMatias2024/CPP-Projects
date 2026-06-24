@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:39 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/21 14:37:33 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/24 19:24:37 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 //PODE SER que o iostream n puxe as outras bibliotecas, por isso é necessario add as outras
 //Ficando para o iostream apenas o controle de fluxo cout e cin
 #include <string>
+#include <cstdlib>
 
 class Contact
 {
@@ -37,8 +38,6 @@ class Contact
 		std::string getFirstName() const;
 		std::string getLastName() const;
 		std::string getNickName() const;
-		std::string getPhoneNumber() const;
-		std::string getSecret() const;
 
 		void	setContact();
 		void	displayContact() const;

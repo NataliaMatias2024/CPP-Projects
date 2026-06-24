@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:29:06 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/23 18:06:27 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/24 19:24:32 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,16 @@ void	PhoneBook::search()//busca e mostra um contato
 	std::getline(std::cin, input);
 	std::cout << std::endl;
 
-	if (input.length() != 1 || input[0] < '0' || input[0] > '8')
+	if (std::cin.eof())
+	{
+		std::cout << "\nEOF detected. Exiting PhoneBook." << std::endl;
+		exit(0);
+	}
+	else if (input.length() != 1 || input[0] < '0' || input[0] > '8')
 	{
 		std::cout << "Error: Please enter a valid index number. Returning to menu." << std::endl;
 		return ;
 	}
-	
 	valid_input = input[0] - '0';
 	if (valid_input < 1 || valid_input > _totalOfContacts)
 		std::cout << "Error: Contact not found. This index is currently empty or out of bounds." << std::endl;
@@ -115,9 +119,13 @@ void	PhoneBook::displayMenu() //mostra as opçoes para o usuário e chama as aç
 		else if (cmd == "SEARCH" || cmd == "search")
 			search();
 		else if (cmd == "EXIT" || cmd == "exit")
-			return ; 
+		{
+			std::cout << "Exit detected. See you later =)" << std::endl;
+			return ;
+		}
 		else
 			std::cout << "Error: " << cmd << ", is not a valid option!" << std::endl;
 		std::cout << "Please select one option ADD, SEARCH or EXIT" << std::endl;
 	}
+	std::cout << "EOF detected. Exiting PhoneBook." << std::endl;
 }

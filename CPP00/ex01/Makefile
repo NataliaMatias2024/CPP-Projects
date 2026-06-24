@@ -6,7 +6,7 @@
 #    By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/31 18:19:55 by namatias          #+#    #+#              #
-#    Updated: 2026/03/31 19:44:11 by namatias         ###   ########.fr        #
+#    Updated: 2026/06/24 19:40:56 by namatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ $(NAME): $(OBJS)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@mkdir -p $(dir $@)
-	@$(CPP) $(CPPFLAGS) $(INCLUDES) -c $? -o $@
+	@$(CPP) $(CPPFLAGS) $(INCLUDES) -c $< -o $@
 	@echo "[$(GREEN)OK$(RESET)] OBJS COMPILED $<"
 
 clean:

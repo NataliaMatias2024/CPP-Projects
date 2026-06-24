@@ -6,11 +6,12 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:27 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/22 23:55:43 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/24 19:34:22 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+static std::string	getValidInput(const std::string display);
 
 Contact::Contact()
 {
@@ -35,34 +36,19 @@ std::string Contact::getNickName() const
 	return (_nickName);
 }
 
-std::string Contact::getPhoneNumber() const
-{
-	return (_phoneNumber);
-}
-
-std::string Contact::getSecret() const
-{
-	return (_secret);
-}
-
 void	Contact::setContact()
 {
 	std::cout << "Please insert your contact information: " << std::endl;
 
-	std::cout << "First Name: ";
-	std::getline(std::cin, _firstName);
+	_firstName = getValidInput("First Name: ");
 
-	std::cout << "Last Name: ";
-	std::getline(std::cin, _lastName);
+	_lastName = getValidInput("Last Name: ");
 
-	std::cout << "Nickname: ";
-	std::getline(std::cin, _nickName);
+	_nickName = getValidInput("Nickname: ");
 
-	std::cout << "Phone Number: ";
-	std::getline(std::cin, _phoneNumber);
-
-	std::cout << "Darkest Secret: ";
-	std::getline(std::cin, _secret);
+	_phoneNumber = getValidInput("Phone Number: ");
+	
+	_secret = getValidInput("Darkest Secret: ");
 
 }
 
@@ -73,4 +59,24 @@ void	Contact::displayContact() const
 	std::cout << "Nickname: " << _nickName << std::endl;
 	std::cout << "Phone Number: " << _phoneNumber << std::endl;
 	std::cout << "Darkest Secret: " << _secret << std::endl;
+}
+
+static std::string	getValidInput(const std::string display)
+{
+	std::string	input;
+
+	while (true)
+	{
+		std::cout << display;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+		{
+			std::cout << "\nEOF detected. Exiting PhoneBook." << std::endl;
+			exit(0);
+		}
+		if (input.empty())
+			std::cout << "Error: Field cannot be empty. Please try again." << std::endl;
+		else
+			return (input);
+	}
 }
