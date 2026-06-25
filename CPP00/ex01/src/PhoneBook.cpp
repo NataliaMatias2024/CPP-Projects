@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:29:06 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/24 19:24:32 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/25 00:05:06 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	PhoneBook::newContact()
 		_totalOfContacts++;
 }
 
-void	PhoneBook::displayList()//mostra na tela a lista de contatos (no max 8)
+void	PhoneBook::displayList()
 {
 	size_t	i;
 
@@ -73,7 +73,7 @@ static std::string	truncate_10(const std:: string string)
 	return (truncate);	
 }
 
-void	PhoneBook::search()//busca e mostra um contato
+void	PhoneBook::search()
 {
 	size_t		valid_input;
 	std::string	input;
@@ -106,7 +106,7 @@ void	PhoneBook::search()//busca e mostra um contato
 		_listOfContacts[valid_input - 1].displayContact();
 }
 
-void	PhoneBook::displayMenu() //mostra as opçoes para o usuário e chama as açoes
+void	PhoneBook::displayMenu()
 {
 	std::string cmd;
 

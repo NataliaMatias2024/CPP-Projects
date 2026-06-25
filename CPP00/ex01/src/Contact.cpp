@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:27 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/24 19:34:22 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/25 00:05:29 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,11 @@ std::string Contact::getNickName() const
 void	Contact::setContact()
 {
 	std::cout << "Please insert your contact information: " << std::endl;
-
 	_firstName = getValidInput("First Name: ");
-
 	_lastName = getValidInput("Last Name: ");
-
 	_nickName = getValidInput("Nickname: ");
-
-	_phoneNumber = getValidInput("Phone Number: ");
-	
+	_phoneNumber = getValidInput("Phone Number: ");	
 	_secret = getValidInput("Darkest Secret: ");
-
 }
 
 void	Contact::displayContact() const
