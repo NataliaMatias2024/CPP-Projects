@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:35 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/24 19:24:35 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/25 00:18:49 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <cstdlib>
+#include <iostream> //biblioteca base do C++. Lida com Input/Output (ex: std::cin e std::cout)
+#include <string> //lida com string e suas manipulaçoes (ex: std::string, .length(), .substr())
+#include <iomanip> //lida com personalizaçao do Input/Output (ex: setd::setw(10))
+#include <cstdlib> //C Standard Library, stdlib do c++, traz funçoes variadas basicas (ex: exit())
 
 class PhoneBook
 {

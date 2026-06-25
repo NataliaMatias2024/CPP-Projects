@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:31:39 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/24 19:24:37 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/25 00:21:07 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Contact
 	//Métodos da classe e sua inicializaçao e finalizaçao
 	public:
 		Contact(); //Construtor
-		~Contact(); //Destrutot
+		~Contact(); //Destrutor
 
 		std::string getFirstName() const;
 		std::string getLastName() const;
