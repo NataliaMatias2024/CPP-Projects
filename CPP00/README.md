@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="cpp00" width="200px" src="https://raw.githubusercontent.com/NataliaMatias2024/42-project-badges/main/badges/cpp00e.png">
+    <img alt="cpp00" width="200px" src="https://raw.githubusercontent.com/NataliaMatias2024/42-project-badges/main/badges/cppe.png">
 </h1>
 
 # 📞 CPP Module 00 - @42SP
