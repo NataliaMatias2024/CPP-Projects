@@ -6,14 +6,14 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:29:06 by namatias          #+#    #+#             */
-/*   Updated: 2026/06/25 00:05:06 by namatias         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:03:41 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 static void	header();
-static std::string truncate_10(const std:: string string);
+static std::string truncate_10(const std::string& string);
 
 PhoneBook::PhoneBook()
 {
@@ -62,7 +62,7 @@ static void	header()
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
 }
 
-static std::string	truncate_10(const std:: string string)
+static std::string	truncate_10(const std::string& string)
 {
 	std::string	truncate;
 
