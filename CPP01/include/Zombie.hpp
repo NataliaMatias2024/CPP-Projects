@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:45:32 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/01 10:51:22 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/01 11:29:48 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ class Zombie
 Zombie*	newZombie(std::string name);
 
 //Esse zumbi nao será usado depois, podendo morrer logo depois que for chamado
-//Nao terá alocação de memoria, encerrando após a função q o chamou encerrar
-//Por isso fica na memoria Stack (alocação local)
+//Não terá alocação DINÂMICA de memória (sem uso do new)
+//A memória é alocada automaticamente na Stack e liberada quando a função encerra.
 void	randomChump(std::string name);
 
 #endif
