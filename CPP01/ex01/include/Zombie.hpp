@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 12:45:32 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/01 12:56:10 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/02 19:44:46 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ class Zombie
 		std::string _name;
 
 	public:
-		Zombie(std::string name);
-	//n conseguimos passar parametros para o destrutor, apenas para o construtor
+		Zombie();
 		~Zombie();
 
 		void	announce(void) const;
+		void	setName(const std::string& name);
 };
 
 Zombie* zombieHorde(int N, std::string name);

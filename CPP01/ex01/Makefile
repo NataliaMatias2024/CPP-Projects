@@ -6,7 +6,7 @@
 #    By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/01 12:54:37 by namatias          #+#    #+#              #
-#    Updated: 2026/07/01 12:54:42 by namatias         ###   ########.fr        #
+#    Updated: 2026/07/02 19:58:30 by namatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,5 +61,8 @@ fclean: clean
 	@echo "[$(GREEN)OK$(RESET)] ALL CLEAR!"
 
 re: fclean all
+
+val: all
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
 
 .PHONY: all clean fclean re
