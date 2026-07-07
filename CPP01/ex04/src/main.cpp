@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 15:33:24 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/07 14:52:25 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/07 17:03:43 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cstring>
 #include <fstream>
 
-int	doTheReplace(std::string const file_name, std::string const target, std::string const replace);
+int	doTheReplace(std::string const fileName, std::string const target, std::string const replace);
 
 int	main(int argc, char *argv[])
 {
@@ -22,7 +22,7 @@ int	main(int argc, char *argv[])
 		std::cerr << "Error: Number of arguments\nUsage: ./replace <filename> <string1_target> <string2_replacement>" << std::endl;
 	else
 	{
-		std::string	file_name = argv[1];
+		std::string	fileName = argv[1];
 		std::string	target = argv[2];
 		std::string replace = argv[3];
 
@@ -31,7 +31,7 @@ int	main(int argc, char *argv[])
 			std::cerr << "Error: Invalid input. Strings can't be empty" << std::endl;
 			return (1);
 		}
-		if (doTheReplace(file_name, target, replace))
+		if (doTheReplace(fileName, target, replace))
 			return (1);
 	}
 	return (0);
@@ -42,32 +42,33 @@ int	main(int argc, char *argv[])
 **passadas strings nesse formato se torna necessario usar o c_str(), ele adiciona o terminador nulo
 **transformando o argumento em um tipo de string C.
 */
-int	doTheReplace(std::string const file_name, std::string const target, std::string const replace)
+int	doTheReplace(std::string const fileName, std::string const target, std::string const replace)
 {
-	std::string new_file = file_name + ".replace";
+	std::string new_file = fileName + ".replace";
 	std::string	line;
 	std::size_t	position;
+	int			firstLine = 1;
 
 	/*
-    ** infile.peek() == std::ifstream::traits_type::eof()
+    ** inFile.peek() == std::ifstream::traits_type::eof()
     ** peek() -> Espia o próximo caractere apontado pelo cursor (sem avançar a posição do ponteiro).
     ** std::ifstream::traits_type::eof() -> Constante da biblioteca que representa o fim do arquivo (EOF).
     ** Resumo: Verifica se o arquivo está vazio, checando se o primeiro caractere já é um EOF.
     */
-	std::ifstream	infile(file_name.c_str());
-	if (!infile.is_open() || infile.peek() == std::ifstream::traits_type::eof())
+	std::ifstream	inFile(fileName.c_str());
+	if (!inFile.is_open() || inFile.peek() == std::ifstream::traits_type::eof())
 	{
-		std::cerr << "Error: Could not open the file < " << file_name << " > or it is empty." << std::endl;
+		std::cerr << "Error: Could not open the file < " << fileName << " > or it is empty." << std::endl;
         return (1);
 	}
-	std::ofstream	outfile(new_file.c_str());
-	if (!outfile.is_open())
+	std::ofstream	outFile(new_file.c_str());
+	if (!outFile.is_open())
 	{
 		std::cerr << "Error: Could not create the output file "<< new_file << std::endl;
 		return (1);
 	}
 
-	while (std::getline(infile, line))
+	while (std::getline(inFile, line))
 	{
 		position = line.find(target);
 		while (position != std::string::npos)
@@ -76,10 +77,15 @@ int	doTheReplace(std::string const file_name, std::string const target, std::str
 			line.insert(position, replace);
 			position = line.find(target, position + replace.length());
 		}
-		outfile << line << std::endl;
+
+		if (firstLine == 0)
+			outFile << "\n";
+
+		outFile << line;
+		firstLine = 0;
 	}
 
-	infile.close();
-	outfile.close();
+	inFile.close();
+	outFile.close();
 	return (0);
 }
