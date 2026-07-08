@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 15:30:36 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/07 18:38:18 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/08 11:59:00 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,43 @@ void Harl::warning(void)
 	std::cout << "I’ve been coming for years, whereas you started working here just last month." << std::endl;
 };
 
+/*
+**	Para fazer uma tabela das funções membros precisamos listar:
+**			1 - oq a tabela devolve (assinatura da função)
+**			2 - a classe para o qual ela aponta os metodos (escopo da classe Harl)
+**			3 - o argumento q ela irá receber
+**	No nosso caso será void + Harl::*menu + void
+**  Ou seja: retorno void, escopo da classe Harl, e sem argumentos
+**
+**	typedef -> Cria um alias para o tipo de dado que fornecemos para ele, sendo que o aliás, é o nome q definimos
+**  como estamos nomeando um ponteiro entao é ele q será nosso alias. representando aquele tipo de função
+**	entao o array functions de tamanho [4] é do tipo t_menu (ponteiro d metodos da classe Harl q retorna void e n recebe args)
+**
+**	static -> nesse escopo o static faz com q a variavel exista durante td o ciclo de vida do nosso programa
+**	nao importando quantas vezes a gnt chame os metodos na main só existira um menuLevels e um menu functions
+**	sem static a cada nova chamada esses arrays seriam construidos, processados e destruidos.
+**
+**	const -> Por estar no começo da declaração, define que os elementos do array são imutáveis,
+** 	garantindo que o compilador impeça qualquer tentativa de alteração, sendo uma segurança a mais
+** 	em casos d atualizações de codigo, manutenção, etc
+** 	Fazendo parte das boas praticas ->'const-correctness' - oq nao deve ser alterado vm com const atrelado
+**
+*/
 void Harl::complain(std::string level)
 {
-	std::string	menuLevels[4] = {"info", "debug", "warning", "error"};
-	// void (Harl::*menuFunctions[4])(void) = {&Harl::info(), debug(), warning(), error()};
+	static std::string	menuLevels[4] = {"info", "debug", "warning", "error"};
+	typedef void (Harl::*t_menu) (void);
+	static t_menu functions[4] = {&Harl::info, &Harl::debug, &Harl::warning, &Harl::error};
 	int			i;
 
 	i = 0;
 	while(i < 4)
 	{
 		if (level == menuLevels[i])
-			break;
+		{
+			(this->*functions[i])();
+			return ;
+		}
 		i++;
 	}
-	if (i == 0)
-		info();
-	else if (i == 1)
-		debug();
-	else if (i == 2)
-		warning();
-	else if (i == 3)
-		error();
 };
