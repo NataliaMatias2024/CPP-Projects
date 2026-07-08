@@ -3,7 +3,7 @@
 </h1>
 
 # 📞 CPP Module 00 - @42SP
-**Score:** - in progress
+**Score:** - 80/100 (100% Mandatory Part Completed) ✅
 
 This repository contains the first module of the C++ curriculum at [42 São Paulo](https://www.42sp.org.br/). 
 The goal of this module is to introduce the basics of **Object-Oriented Programming (OOP)** in C++98, transitioning away from procedural C. It features a string manipulation exercise and a fully functional CLI PhoneBook application.
