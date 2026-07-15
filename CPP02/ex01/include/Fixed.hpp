@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 16:59:23 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/13 13:34:29 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/15 17:46:22 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Fixed
 {
 	private:
-		const int			_rawBits;
+		int					_rawBits;
 		static const int	_fractBits;
 
 	public:
@@ -28,14 +28,14 @@ class Fixed
 		Fixed& operator=(const Fixed&);
 		~Fixed();
 
-		Fixed(const int number_int);
-		Fixed(const float number_float);
-
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 
-		float	toFloat (void) const;
+		Fixed(const int number_int);
+		Fixed(const float number_float);
+
 		int		toInt (void) const;
+		float	toFloat (void) const;
 };
 
 std::ostream& operator<<(std::ostream& output, const Fixed&);

@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 13:39:49 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/13 15:09:31 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/15 18:09:10 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" <<std::endl;
 	return (_rawBits);
 }
 
@@ -64,11 +63,13 @@ void Fixed::setRawBits(int const raw)
 Fixed::Fixed(const int number_int)
 {
 	std::cout << "Int constructor called" << std::endl;
+	this->_rawBits = number_int << _fractBits;
 }
 
 Fixed::Fixed(const float number_float)
 {
 	std::cout << "Float constructor called" << std::endl;
+	this->_rawBits = (int)(roundf(number_float * (1 << _fractBits)));
 }
 /*
 ** to convert fixed points values to a float
@@ -87,7 +88,7 @@ int Fixed::toInt (void) const
 {
 	int	newInt;
 
-	newInt = ;
+	newInt = this->getRawBits() >> _fractBits;
 	return (newInt);
 }
 
@@ -96,4 +97,3 @@ std::ostream& operator<<(std::ostream& output, const Fixed& object)
 	output << object.toFloat();
 	return (output);
 }
-
