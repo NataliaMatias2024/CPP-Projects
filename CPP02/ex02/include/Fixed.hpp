@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 19:50:50 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/17 15:08:19 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/17 17:01:37 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,21 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed&);
-		Fixed(const int number_int);
-		Fixed(const float number_float);
+		Fixed& operator=(const Fixed&);
 		~Fixed();
-
-		int		toInt (void) const;
-		float	toFloat (void) const;
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 
-		Fixed& operator=(const Fixed&);
+		Fixed(const int number_int);
+		Fixed(const float number_float);
 
-	/* Exclusive from this exercise */
-
-		static Fixed& min(Fixed&, Fixed&);
-		static const Fixed& min(const Fixed&, const Fixed&);
-		static Fixed& max(Fixed&, Fixed&);
-		static const Fixed& max(const Fixed&, const Fixed&);
+		int		toInt (void) const;
+		float	toFloat (void) const;
 
 /*
+**	Comparison Operators
+**
 **  Returns a boolean value (true or false) after comparing two objects.
 **  One object is explicitly passed as an argument, while the other is
 **  implicitly the object that invoked the operator (accessed via 'this').
@@ -57,6 +52,8 @@ class Fixed
 		bool	operator!=(const Fixed&) const;
 
 /*
+**	Arithmetc Operators
+**
 **  Returns a new Fixed object (by value) containing the result of the
 **  arithmetic operation. The original objects remain unchanged.
 */
@@ -66,7 +63,9 @@ class Fixed
 		Fixed	operator/(const Fixed&) const;
 
 /*
-**  Increment and Decrement operators have two variants:
+**  Increment and Decrement operators
+**
+**	They have two variants:
 **      - Prefix (++a): Increments the value first, then returns the updated
 **                      object itself. Returns a reference (Fixed&).
 **      - Postfix (a++): Creates a temporary copy with the old value, increments
@@ -78,6 +77,12 @@ class Fixed
 		Fixed& operator++();
 		Fixed operator--(int);
 		Fixed operator++(int);
+
+
+		static Fixed& min(Fixed&, Fixed&);
+		static const Fixed& min(const Fixed&, const Fixed&);
+		static Fixed& max(Fixed&, Fixed&);
+		static const Fixed& max(const Fixed&, const Fixed&);
 };
 
 std::ostream& operator<<(std::ostream& output, const Fixed&);

@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 15:10:27 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/17 16:32:04 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/17 17:06:29 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,27 @@ Fixed::Fixed(const Fixed& obj)
 	*this = obj;
 }
 
+Fixed& Fixed::operator=(const Fixed& obj)
+{
+	if (this != &obj)
+		this->_rawBits = obj.getRawBits();
+	return (*this);
+}
+
+Fixed::~Fixed()
+{
+}
+
+int	Fixed::getRawBits(void) const
+{
+	return (_rawBits);
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	_rawBits = raw;
+}
+
 Fixed::Fixed(const int number_int)
 {
 	_rawBits = number_int << _fractBits;
@@ -31,10 +52,6 @@ Fixed::Fixed(const int number_int)
 Fixed::Fixed(const float number_float)
 {
 	_rawBits = (int)(roundf(number_float * (1 << _fractBits)));
-}
-
-Fixed::~Fixed()
-{
 }
 
 int	Fixed::toInt(void) const
@@ -51,51 +68,6 @@ float	Fixed::toFloat(void) const
 
 	tempFloat = (float)_rawBits / (1 << _fractBits);
 	return (tempFloat);
-}
-
-int	Fixed::getRawBits(void) const
-{
-	return (_rawBits);
-}
-
-void	Fixed::setRawBits(int const raw)
-{
-	_rawBits = raw;
-}
-
-Fixed& Fixed::operator=(const Fixed& obj)
-{
-	if (this != &obj)
-		this->_rawBits = obj.getRawBits();
-	return (*this);
-}
-
-Fixed&	Fixed::min(Fixed& numb1, Fixed& numb2)
-{
-	if (numb1 < numb2)
-		return (numb1);
-	return (numb2);
-}
-
-const Fixed& 	Fixed::min(const Fixed& numb1, const Fixed& numb2)
-{
-	if (numb1 < numb2)
-		return (numb1);
-	return (numb2);
-}
-
-Fixed&	Fixed::max(Fixed& numb1, Fixed& numb2)
-{
-	if (numb1 > numb2)
-		return (numb1);
-	return (numb2);
-}
-
-const Fixed& 	Fixed::max(const Fixed& numb1, const Fixed& numb2)
-{
-	if (numb1 > numb2)
-		return (numb1);
-	return (numb2);
 }
 
 bool	Fixed::operator>(const Fixed& numb2) const
@@ -160,6 +132,9 @@ Fixed	Fixed::operator/(const Fixed& numb2) const
 	return (temp);
 }
 
+/*
+**	Prefix (++a)
+*/
 Fixed& Fixed::operator--(void)
 {
 	this->_rawBits--;
@@ -172,6 +147,9 @@ Fixed& Fixed::operator++(void)
 	return (*this);
 }
 
+/*
+**	Postfix (a++)
+*/
 Fixed Fixed::operator--(int)
 {
 	Fixed	temp;
@@ -188,6 +166,34 @@ Fixed Fixed::operator++(int)
 	temp = *this;
 	this->_rawBits++;
 	return (temp);
+}
+
+Fixed&	Fixed::min(Fixed& numb1, Fixed& numb2)
+{
+	if (numb1 < numb2)
+		return (numb1);
+	return (numb2);
+}
+
+const Fixed& 	Fixed::min(const Fixed& numb1, const Fixed& numb2)
+{
+	if (numb1 < numb2)
+		return (numb1);
+	return (numb2);
+}
+
+Fixed&	Fixed::max(Fixed& numb1, Fixed& numb2)
+{
+	if (numb1 > numb2)
+		return (numb1);
+	return (numb2);
+}
+
+const Fixed& 	Fixed::max(const Fixed& numb1, const Fixed& numb2)
+{
+	if (numb1 > numb2)
+		return (numb1);
+	return (numb2);
 }
 
 std::ostream& operator<<(std::ostream& output, const Fixed& obj)
