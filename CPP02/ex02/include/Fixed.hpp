@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 19:50:50 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/15 20:12:12 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/17 15:08:19 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,57 @@ class Fixed
 		Fixed(const Fixed&);
 		Fixed(const int number_int);
 		Fixed(const float number_float);
-		Fixed& operator=(const Fixed&);
 		~Fixed();
 
 		int		toInt (void) const;
-		int		getRawBits(void) const;
 		float	toFloat (void) const;
+
+		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 
-		static Fixed& min(Fixed& , Fixed&);
+		Fixed& operator=(const Fixed&);
+
+	/* Exclusive from this exercise */
+
+		static Fixed& min(Fixed&, Fixed&);
+		static const Fixed& min(const Fixed&, const Fixed&);
+		static Fixed& max(Fixed&, Fixed&);
+		static const Fixed& max(const Fixed&, const Fixed&);
+
+/*
+**  Returns a boolean value (true or false) after comparing two objects.
+**  One object is explicitly passed as an argument, while the other is
+**  implicitly the object that invoked the operator (accessed via 'this').
+*/
+		bool	operator>(const Fixed&) const;
+		bool	operator<(const Fixed&) const;
+		bool	operator>=(const Fixed&) const;
+		bool	operator<=(const Fixed&) const;
+		bool	operator==(const Fixed&) const;
+		bool	operator!=(const Fixed&) const;
+
+/*
+**  Returns a new Fixed object (by value) containing the result of the
+**  arithmetic operation. The original objects remain unchanged.
+*/
+		Fixed	operator+(const Fixed&) const;
+		Fixed	operator-(const Fixed&) const;
+		Fixed	operator*(const Fixed&) const;
+		Fixed	operator/(const Fixed&) const;
+
+/*
+**  Increment and Decrement operators have two variants:
+**      - Prefix (++a): Increments the value first, then returns the updated
+**                      object itself. Returns a reference (Fixed&).
+**      - Postfix (a++): Creates a temporary copy with the old value, increments
+**                       the original object, and returns the temporary copy.
+**                       Returns a new object by value (Fixed).
+**                       (The 'int' parameter is a dummy used by the compiler).
+*/
+		Fixed& operator--();
+		Fixed& operator++();
+		Fixed operator--(int);
+		Fixed operator++(int);
 };
 
 std::ostream& operator<<(std::ostream& output, const Fixed&);
