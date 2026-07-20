@@ -6,7 +6,7 @@
 #    By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/19 12:24:25 by namatias          #+#    #+#              #
-#    Updated: 2026/07/19 12:25:46 by namatias         ###   ########.fr        #
+#    Updated: 2026/07/20 14:49:02 by namatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ INC_DIR = ./include/
 SRC_DIR = ./src/
 
 SRC_FILES = main.cpp \
-			ClapTrap.cpp
+			ClapTrap.cpp \
+			Style.cpp
 
 OBJS = 		$(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 INCLUDES =	-I $(INC_DIR)
