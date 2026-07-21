@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 14:10:13 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/20 18:09:00 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/21 14:07:53 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	main()
 		marvin.attack("idiot humans ego");
 		marvin.attack("idiot humans");
 		marvin.beRepaired(10);
+		marvin.takeDamage(25);
 
 		std::cout << std::endl;
 

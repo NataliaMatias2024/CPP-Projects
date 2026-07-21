@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 13:25:20 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/19 15:57:53 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/21 14:20:42 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,43 @@ ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(10), _energyPoints
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << this->_name << " took " << amount << " of damage caused by a water jet!" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " took " << amount << " of damage caused by a water jet!" << std::endl;
+	if (amount >= this->_hitPoints)
+	{
+		this->_hitPoints = 0;
+		std::cout << "Ooooh noooo!\n";
+		std::cout << "ClapTrap " << this->_name << " took critical damage and turned off !!\nRIP =/" << std::endl;
+	}
+	else
+		this->_hitPoints -= amount;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << this->_name << " wraps herself in the towel and recovery " << amount << " of hit points. Your current health is " << this->_hitPoints << " hit points." << std::endl;
+	if (this->_energyPoints == 0)
+		std::cout << "ClapTrap " << this->_name << " can't be repaired now! Hi's exausted and don't have energy points!" << std::endl;
+	else if (this->_hitPoints == 0)
+		std::cout << "ClapTrap " << this->_name << " can't be repaired now! Hi's beterry get to low and now he turned off\nRIP =/" << std::endl;
+	else
+	{
+		this->_hitPoints += amount;
+		this->_energyPoints--;
+		std::cout << "ClapTrap " << this->_name << " wraps himself in the towel and recovers " << amount << " of hit points. His current health is " << this->_hitPoints << " hit points." << std::endl;
+	}
 }
 
 void	ClapTrap::attack(const std::string& target)
 {
-	std::cout << "ClapTrap: " << this->_name << " attacks " << target << ", ";
-	std::cout << "causing " << this->_attackDamage << " points of damage!" << std::endl;
+	if (this->_energyPoints == 0)
+		std::cout << "ClapTrap " << this->_name << " can't attack " << target << "! He's exhausted and doesn't have energy points!" << std::endl;
+	else if (this->_hitPoints == 0)
+		std::cout << "ClapTrap " << this->_name << " can't attack " << target << "! His battery got too low and now he turned off\nRIP =/" << std::endl;
+	else
+	{
+		this->_energyPoints--;
+		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", ";
+		std::cout << "causing " << this->_attackDamage << " points of damage!" << std::endl;
+	}
 }
 
 std::string ClapTrap::getName() const
