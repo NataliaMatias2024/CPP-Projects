@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 14:10:13 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/22 11:24:06 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/22 14:14:48 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,36 +29,20 @@ int	main()
 		ScavTrap	inherit;
 		ScavTrap	scavTrap("Luis");
 
+		std::cout << std::endl;
+
 		display.headerTable();
 		display.displayStatus(clapTrap);
 		display.displayStatus(copy);
 		display.displayStatus(inherit);
 		display.displayStatus(scavTrap);
-	}
-	{
-		std::cout << "\n                Life Cycle of a CLAPTRAP Object:               \n" << std::endl;
-		ClapTrap	marvin("Marvin");
-
-		display.headerTable();
-		display.displayStatus(marvin);
 
 		std::cout << std::endl;
-
-		marvin.takeDamage(5);
-		marvin.attack("idiot humans ego");
-		marvin.attack("idiot humans");
-		marvin.beRepaired(10);
-		marvin.takeDamage(25);
-
-		std::cout << std::endl;
-
-		display.headerTable();
-		display.displayStatus(marvin);
 	}
 	{
 		std::cout << "\n                Life Cycle of a SCAVTRAP Object:               \n" << std::endl;
-		ScavTrap	scavTrap("Wall-E");
 
+		ScavTrap	scavTrap("Wall-E");
 		display.headerTable();
 		display.displayStatus(scavTrap);
 
@@ -74,6 +58,8 @@ int	main()
 
 		display.headerTable();
 		display.displayStatus(scavTrap);
+
+		std::cout << std::endl;
 	}
 	return (0);
 }
