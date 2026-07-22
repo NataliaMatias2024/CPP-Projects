@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 14:10:13 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/22 13:31:11 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/22 14:36:08 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,36 +30,49 @@ int	main()
 		FragTrap	fragtrap;
 		FragTrap	fragtest("Ph");
 
+		std::cout << std::endl;
+
 		display.headerTable();
 		display.displayStatus(clapTrap);
 		display.displayStatus(copy);
 		display.displayStatus(fragtrap);
 		display.displayStatus(fragtest);
+
+		std::cout << std::endl;
 
 		clapTrap = copy;
 		fragtrap = fragtest;
 
+		std::cout << std::endl;
+
 		display.headerTable();
 		display.displayStatus(clapTrap);
 		display.displayStatus(copy);
 		display.displayStatus(fragtrap);
 		display.displayStatus(fragtest);
+
+		std::cout << std::endl;
 	}
 	{
 		std::cout << "\n                Life Cycle of a FRAGTRAP Object:               \n" << std::endl;
 
 		FragTrap	fragtrap("Ph");
-
 		display.headerTable();
 		display.displayStatus(fragtrap);
+
+		std::cout << std::endl;
 
 		fragtrap.takeDamage(50);
 		fragtrap.attack("humans");
 		std::cout << "Humans finally decided to finish the pool party!!" << std::endl;
 		fragtrap.highFivesGuys();
 
+		std::cout << std::endl;
+
 		display.headerTable();
 		display.displayStatus(fragtrap);
+
+		std::cout << std::endl;
 	}
 	return (0);
 }
