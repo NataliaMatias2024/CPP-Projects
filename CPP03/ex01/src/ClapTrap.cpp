@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 13:25:20 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/22 11:24:15 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/22 15:43:02 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_energyPoints == 0)
-		std::cout << "ClapTrap " << this->_name << " can't be repaired now! Hi's exausted and don't have energy points!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " can't be repaired now! He's exhausted and doesn't have energy points!" << std::endl;
 	else if (this->_hitPoints == 0)
 		std::cout << "ClapTrap " << this->_name << " can't be repaired now! His battery got too low and now he turned off\nRIP =/" << std::endl;
 	else
