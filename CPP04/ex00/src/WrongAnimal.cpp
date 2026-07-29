@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 18:48:27 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/25 16:30:14 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/29 10:57:16 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ WrongAnimal::WrongAnimal(): _type("WrongAnimal")
 	std::cout << "WrongAnimal Constructor Called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal& obj)
+WrongAnimal::WrongAnimal(const WrongAnimal& obj): _type(obj._type)
 {
 	std::cout << "WrongAnimal Copy Constructor Called" << std::endl;
-	*this = obj;
 }
 
 /*Assignment Operator*/
