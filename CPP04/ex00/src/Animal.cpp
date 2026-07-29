@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 12:40:17 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/25 16:29:11 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/28 22:18:39 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ Animal::Animal(): _type("Animal")
 }
 
 /*Copy Constructor*/
-Animal::Animal(const Animal& obj)
+Animal::Animal(const Animal& obj): _type(obj._type)
 {
 	std::cout << "Animal Copy Constructor Called" << std::endl;
-	*this = obj;
 }
 
 /*Assignment Operator*/
@@ -51,5 +50,10 @@ std::string	Animal::makeSoundTest() const
 
 std::string Animal::getType() const
 {
-	return (_type);
+	return (this->_type);
+}
+
+Animal::Animal(const std::string& type): _type(type)
+{
+	std::cout << "Animal Parametrized Constructor Called" << std::endl;
 }

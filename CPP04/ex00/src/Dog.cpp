@@ -6,23 +6,21 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 17:39:15 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/25 16:32:46 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/28 22:57:04 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(): Animal()
+Dog::Dog(): Animal("Dog")
 {
 	std::cout << "Dog Constructor Called" << std::endl;
-	this->_type = "Dog";
 }
 
 /*Copy Constructor*/
-Dog::Dog(const Dog& obj): Animal()
+Dog::Dog(const Dog& obj): Animal(obj)
 {
 	std::cout << "Dog Copy Constructor Called" << std::endl;
-	*this = obj;
 }
 
 /*Assignment Operator*/
@@ -30,9 +28,7 @@ Dog& Dog::operator=(const Dog& obj)
 {
 	std::cout << "Dog Copy Assignment Operator Called" << std::endl;
 	if (this != &obj)
-	{
-		this->_type = obj._type;
-	}
+		Animal::operator=(obj);
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 12:34:05 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/25 16:32:55 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/28 22:30:02 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class Animal
 		Animal(const Animal&);
 		Animal& operator=(const Animal&);
 		virtual ~Animal();
+
+		Animal(const std::string& type);
 
 		virtual void	makeSound() const;
 
