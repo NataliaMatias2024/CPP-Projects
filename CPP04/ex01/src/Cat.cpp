@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 18:00:41 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/28 23:23:41 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/29 15:54:56 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,21 @@ Cat::~Cat()
 
 void	Cat::makeSound() const
 {
-	std::cout << "meoowww meooooowwwwwww!" << std::endl;
+	std::cout << "meow meow!" << std::endl;
 }
 
-std::string	Cat::makeSoundTest() const
+std::string Cat::getThought() const
 {
-	std::string sound = "meoowww meooooowwwwwww!";
-	return (sound);
+    return (this->getIdea(0));
 }
+
+void Cat::setIdea(int index, std::string idea)
+{
+    this->_idea->setIdea(index, idea);
+}
+
+std::string Cat::getIdea(int index) const
+{
+    return (this->_idea->getIdea(index));
+}
+

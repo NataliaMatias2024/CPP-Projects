@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 11:00:26 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/28 16:29:34 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/29 15:51:15 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Brain
 {
 	private:
-		std::string _ideas[100];
+		std::string	_ideas[100];
 	public:
 		Brain();
 		Brain(const Brain&);
@@ -27,6 +27,9 @@ class Brain
 		~Brain();
 
 		Brain(std::string idea);
+
+		void		setIdea(int index, std::string idea);
+		std::string	getIdea(int index) const;
 };
 
 #endif

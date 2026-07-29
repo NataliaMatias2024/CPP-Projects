@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 17:39:15 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/28 23:26:21 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/29 15:53:45 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,20 @@ Dog::~Dog()
 
 void 	Dog::makeSound() const
 {
-	std::cout << "woof wooooooof" << std::endl;
+	std::cout << "woof woof" << std::endl;
 }
 
-std::string	Dog::makeSoundTest() const
+std::string Dog::getThought() const
 {
-	std::string sound = "woof wooooooof";
-	return (sound);
+    return (this->getIdea(0));
+}
+
+void Dog::setIdea(int index, std::string idea)
+{
+    this->_idea->setIdea(index, idea);
+}
+
+std::string Dog::getIdea(int index) const
+{
+    return (this->_idea->getIdea(index));
 }

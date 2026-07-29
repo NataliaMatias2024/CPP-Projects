@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 12:34:05 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/28 22:30:02 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/29 15:52:16 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ class Animal
 		virtual void	makeSound() const;
 
 		std::string				getType() const;
-		virtual std::string		makeSoundTest() const;
+		virtual std::string 	getThought() const;
+
+		void		setIdea(int index, std::string idea);
+		std::string	getIdea(int index) const;
 };
 
 #endif

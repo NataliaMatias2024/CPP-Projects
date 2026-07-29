@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 12:40:17 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/28 23:23:28 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/29 15:49:00 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,9 @@ void	Animal::makeSound() const
 	std::cout << "Animals can make many different sounds!" << std::endl;
 }
 
-std::string	Animal::makeSoundTest() const
+std::string Animal::getThought() const
 {
-	std::string sound = "Animals can make many different sounds!";
-	return (sound);
+    return ("No brain, just pure instincts...");
 }
 
 std::string Animal::getType() const
