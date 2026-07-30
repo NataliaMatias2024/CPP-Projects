@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 18:00:41 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/29 15:54:56 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:49:00 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,3 +62,7 @@ std::string Cat::getIdea(int index) const
     return (this->_idea->getIdea(index));
 }
 
+const void* Cat::getBrainAddress() const
+{
+    return (this->_idea);
+}

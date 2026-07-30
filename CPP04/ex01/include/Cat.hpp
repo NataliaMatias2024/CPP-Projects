@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 12:34:10 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/29 15:52:18 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:48:52 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Cat: public Animal
 
 		void		setIdea(int index, std::string idea);
 		std::string	getIdea(int index) const;
+		const void* getBrainAddress() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 12:50:09 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/29 16:01:31 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:50:56 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,23 @@ int	main()
 		for (int i = 0; i < arraySize; i++)
 		{
 			if (i < arraySize / 2)
+			{
+				std::cout << "Array Zoo, index: " << i << ". Filling with Dog Obj:\n" << std::endl;
 				zoo[i] = new Dog();
+				std::cout << std::endl;
+			}
 			else
+			{
+				std::cout << "Array Zoo, index: " << i << ". Filling with Cat Obj:\n" << std::endl;
 				zoo[i] = new Cat();
+				std::cout << std::endl;
+			}
 		}
-		std::cout << std::endl;
 
 		style.headerTable();
 		for (int i = 0; i < arraySize; i++)
 		{
-			style.displayStatus(*zoo[i], zoo[i]);
+			style.displayStatus(*zoo[i], zoo[i]->getBrainAddress());
 		}
 		std::cout << std::endl;
 
@@ -54,6 +61,7 @@ int	main()
 		for (int i = 0; i < arraySize; i++)
 		{
 			delete zoo[i];
+			std::cout << std::endl;
 		}
 	}
 	{
@@ -80,8 +88,8 @@ int	main()
 		std::cout << std::endl;
 
 		style.headerTable();
-		style.displayStatus(*adultDog, adultDog);
-		style.displayStatus(*puppy, puppy);
+		style.displayStatus(*adultDog, adultDog->getBrainAddress());
+		style.displayStatus(*puppy, puppy->getBrainAddress());
 		std::cout << std::endl;
 
 		std::cout << "Idea 0 from adultDog : " << adultDog->getIdea(0) << std::endl;
@@ -97,6 +105,7 @@ int	main()
 
 		std::cout << "Initialize the memory cleaning\n" << std::endl;
 		delete adultDog;
+		std::cout << std::endl;
 		delete puppy;
 	}
 	return (0);

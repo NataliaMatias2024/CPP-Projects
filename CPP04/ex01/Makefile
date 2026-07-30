@@ -6,7 +6,7 @@
 #    By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/24 12:34:35 by namatias          #+#    #+#              #
-#    Updated: 2026/07/28 23:29:58 by namatias         ###   ########.fr        #
+#    Updated: 2026/07/30 13:54:25 by namatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,6 @@ fclean: clean
 re: fclean all
 
 val: all
-	valgrind -q --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
 
 .PHONY: all clean fclean re val

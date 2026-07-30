@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 17:39:15 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/29 15:53:45 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:49:01 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,9 @@ void Dog::setIdea(int index, std::string idea)
 std::string Dog::getIdea(int index) const
 {
     return (this->_idea->getIdea(index));
+}
+
+const void* Dog::getBrainAddress() const
+{
+    return (this->_idea);
 }

@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 12:40:17 by namatias          #+#    #+#             */
-/*   Updated: 2026/07/29 15:49:00 by namatias         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:48:57 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,9 @@ std::string Animal::getType() const
 Animal::Animal(const std::string& type): _type(type)
 {
 	std::cout << "Animal Parametrized Constructor Called" << std::endl;
+}
+
+const void* Animal::getBrainAddress() const
+{
+    return (NULL);
 }
