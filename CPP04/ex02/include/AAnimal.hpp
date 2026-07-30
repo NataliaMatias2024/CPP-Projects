@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/24 12:34:05 by namatias          #+#    #+#             */
+/*   Updated: 2026/07/30 13:48:49 by namatias         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+
+#include <iostream>
+#include <string>
+
+class AAnimal
+{
+	protected:
+		std::string _type;
+	public:
+		AAnimal();
+		AAnimal(const AAnimal&);
+		AAnimal& operator=(const AAnimal&);
+		virtual ~AAnimal();
+
+		AAnimal(const std::string& type);
+
+		virtual void	makeSound() const = 0;
+
+		std::string				getType() const;
+		virtual std::string 	getThought() const;
+
+		void				setIdea(int index, std::string idea);
+		std::string			getIdea(int index) const;
+		virtual const void*	getBrainAddress() const;
+};
+
+#endif
