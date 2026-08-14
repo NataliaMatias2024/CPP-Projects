@@ -6,7 +6,7 @@
 #    By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/12 10:49:08 by namatias          #+#    #+#              #
-#    Updated: 2026/08/12 11:21:18 by namatias         ###   ########.fr        #
+#    Updated: 2026/08/14 11:59:49 by namatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ INC_DIR = ./include/
 SRC_DIR = ./src/
 
 SRC_FILES = Bureaucrat.cpp \
-			main.cpp
+			main.cpp \
+			Style.cpp
 
 OBJS = 		$(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 INCLUDES =	-I $(INC_DIR)
