@@ -24,7 +24,7 @@ int main()
 	Bureaucrat assigment("Assigment", 120);
 	assigment = alice;
 	std::string nameCheck = (assigment.getName() == "Assigment") ? "[name preserv]" : "[ERRO: orig. name lost]";
-	style.displayStatus("operator= (so grade)", assigment.getName(), "grade = " + toString(assigment.getGrade()) + " " + nameCheck);
+	style.displayStatus("operator= (only grade)", assigment.getName(), "grade = " + toString(assigment.getGrade()) + " " + nameCheck);
 
 	std::cout << std::endl;
 	std::cout << std::endl;
@@ -191,8 +191,12 @@ int main()
 
 	/* ---------------------------------------------------------- */
 	style.headerTest("operator<<");
+
+	std::cout << std::endl;
+
 	Bureaucrat printable("Printable", 42);
 	std::cout << printable << std::endl;
 
+	std::cout << std::endl;
 	return (0);
 }

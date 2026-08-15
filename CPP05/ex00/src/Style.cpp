@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 14:18:35 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/14 12:01:42 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/15 18:04:48 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,9 +142,10 @@ void Style::printResultsTable(const TestEntry* entries, size_t count)
 		std::cout << std::setw(testWidth) << test << "|";
 		std::cout << std::setw(nameWidth) << name << "|";
 		std::cout << std::setw(detailWidth) << det << "|" << std::endl;
+		printBorder(statusWidth, testWidth, nameWidth, detailWidth);
+		
 		i++;
 	}
-	printBorder(statusWidth, testWidth, nameWidth, detailWidth);
 }
 
 Style::TestEntry	Style::makeEntry(const std::string& test,const std::string& name, bool passed, const std::string& detail)
