@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 00:09:14 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/15 17:34:38 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/15 17:56:11 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,30 @@ int main()
 	style.displayStatus("copy constructor", copyObj.getName(), "grade to sign = " + toString(copyObj.getGradeSign()));
 	style.displayStatus("copy constructor", copyObj.getName(), "grade to exec = " + toString(copyObj.getGradeExec()));
 	
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	
 	/*
 	** Copies only the status isSigned. 
 	** The others variables are a constant type and cannot be modified after creation.
 	*/
-	Form assigment("Assigment", 1, 95);
+	style.headerTest("Assigment Operator Tests");	
+	Form assigment("Assigment Operator", 99, 99);
+	style.headerTable();
+	style.displayStatus("Parametrized Constructor", assigment.getName(), "Grade Sign = " + toString(assigment.getGradeSign()));
+	style.displayStatus("		  ", assigment.getName(), "Grade Exec = " + toString(assigment.getGradeExec()));
+	style.displayStatus("		  ", assigment.getName(), "Sign Status = " + toString(assigment.getIsSigned()));
+	
+	Bureaucrat bureaucratTest("Bureaucrat", 1);
+	bureaucratTest.signForm(def);
 	assigment = def;
 	std::string nameCheck = (assigment.getName() == "Assigment") ? "[name preserv]" : "[ERRO: orig. name lost]";
-	style.displayStatus("operator=", assigment.getName(), "Grade Sign = " + toString(assigment.getGradeSign()) + " " + nameCheck);
-	style.displayStatus("operator=", assigment.getName(), "Grade Exec = " + toString(assigment.getGradeExec()) + " " + nameCheck);
+	style.headerTable();
+	style.displayStatus("Operator=", assigment.getName(), "Grade Sign = " + toString(assigment.getGradeSign()));
+	style.displayStatus("		  ", assigment.getName(), "Grade Exec = " + toString(assigment.getGradeExec()));
+	style.displayStatus("		  ", assigment.getName(), "Sign Status = " + toString(assigment.getIsSigned()));
+
 
 	std::cout << std::endl;
 	std::cout << std::endl;
@@ -156,19 +171,7 @@ int main()
 	bureaucrat.signForm(form);
 	signedTests[j++] = style.makeEntry("Form After Marvin try", form.getName(), true, "Signed Status = " + toString(form.getIsSigned()));
 	std::cout << std::endl;
-	
-
-	// try
-	// {
-	// 	bureaucrat.signForm(form);
-	// 	signedTests[j++] = style.makeEntry("Form New Status", form.getName(), true, "Grade = " + toString(form.getIsSigned()));
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	signedTests[j++] = style.makeEntry("Form Status", form.getName(), false, e.what());
-	// }
-	
-	
+		
 	style.printResultsTable(signedTests, j);
 	std::cout << std::endl;
 	std::cout << std::endl;
@@ -176,10 +179,17 @@ int main()
 	/* ---------------------------------------------------------- */
 	style.headerTest("operator<<");
 
+	std::cout << std::endl;
+	
 	Form printable("Printable", 42, 42);
 	std::cout << printable << std::endl;
 
+	std::cout << std::endl;
+	
 	Form test("CPP05", 100, 5);
 	std::cout << test << std::endl;
+
+	
+	std::cout << std::endl;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 15:09:47 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/15 17:34:36 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/15 17:54:00 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Form::Form(const Form& obj): _nameForm(obj.getName()), _isSigned(obj.getIsSigned
 
 Form& Form::operator=(const Form& obj)
 {
+	std::cout << "Operator= called" << std::endl;
 	if (this != &obj)
 	{
 		this->_isSigned = obj.getIsSigned();
