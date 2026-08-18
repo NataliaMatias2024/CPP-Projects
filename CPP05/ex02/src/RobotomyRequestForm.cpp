@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 20:50:03 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/17 23:32:11 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/18 15:14:32 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,18 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
+	this->checkExecute(executor);
 
+	std::cout << "zzzt, zzzt, zzzt! (Drilling noises...)" << std::endl;
+	
+	/*
+	** As requested by the subject, the success rate needs to be 50%.
+	** We achieve this by checking if the generated random number is even (rand() % 2 == 0).
+	*/
+	if (rand() % 2 == 0)
+		std::cout << this->getTarget() << " has been robotomized successfully." << std::endl;
+	else
+		std::cout << "Robotomy on " << this->getTarget() << " failed." << std::endl;
 }
 
 const std::string	RobotomyRequestForm::getTarget() const

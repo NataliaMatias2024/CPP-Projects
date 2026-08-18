@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 10:53:34 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/17 22:49:31 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/18 13:53:44 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,19 @@ void 	Bureaucrat::signForm(AForm& form) const
 	}
 }
 
+void 	Bureaucrat::executeForm(AForm const & form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e) 
+    {
+        std::cout << this->getName() << " couldn't execute " << form.getName() << " because "
+		<< e.what() << std::endl;
+    }
+}
 
 std::ostream& operator<<(std::ostream& output, const Bureaucrat& obj)
 {

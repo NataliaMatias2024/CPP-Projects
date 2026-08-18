@@ -90,6 +90,21 @@ const char* AForm::GradeTooLowException::what() const throw()
 	return (this->_messageForm.c_str());
 }
 
+AForm::FormUnsignedException::FormUnsignedException(const std::string& message): _messageForm(message)
+{
+}
+
+AForm::FormUnsignedException::~FormUnsignedException() throw()
+{
+}
+
+const char* AForm::FormUnsignedException::what() const throw()
+{
+	return (this->_messageForm.c_str());
+}
+
+
+
 const std::string 	AForm::getName() const
 {
 	return (this->_nameForm);
@@ -116,6 +131,15 @@ void				AForm::beSigned(const Bureaucrat& bureaucrat)
 		throw GradeTooLowException("Bureaucrat grade is too low to sign this form!");
 	this->_isSigned = true;
 }
+
+void	AForm::checkExecute(const Bureaucrat& executor) const
+{
+	if (!this->_isSigned)
+		throw AForm::FormUnsignedException("This form must be signed before this action!");
+	if (executor.getGrade() > this->_gradeExec)
+		throw AForm::GradeTooLowException("Bureaucrat grade is too low to execute this form!");
+}
+
 
 std::ostream& operator<<(std::ostream& output, const AForm& form)
 {

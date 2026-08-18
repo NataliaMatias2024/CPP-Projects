@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 15:41:55 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/17 22:49:26 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/18 14:09:33 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include "AForm.hpp"
 

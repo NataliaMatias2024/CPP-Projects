@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 22:31:22 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/17 23:32:30 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/18 15:14:38 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
+	this->checkExecute(executor);
 
+	std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 const std::string PresidentialPardonForm::getTarget() const

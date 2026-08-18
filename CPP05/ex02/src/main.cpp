@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 00:09:14 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/17 23:32:38 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/18 15:29:55 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main()
 		std::cout << std::endl;
 
 		style.headerTable();
-		style.displayStatus("Default constructor", polyDefault->getName(), "Grade to sign = " + toString(polyDefault->getGradeSign()));
+		style.displayStatus("Default constructor ", polyDefault->getName(), "Grade to sign = " + toString(polyDefault->getGradeSign()));
 		style.displayStatus("					", polyDefault->getName(), "Grade to exec = " + toString(polyDefault->getGradeExec()));
 		style.displayStatus("					", polyDefault->getName(), "Target = " + polyDefault->getTarget());
 		style.displayStatus("Parametrized constructor", polyParametrized->getName(), "Grade to sign = " + toString(polyParametrized->getGradeSign()));
@@ -85,7 +85,7 @@ int main()
 		std::cout << std::endl;
 
 		style.headerTable();
-		style.displayStatus("Default constructor", polyDefault->getName(), "Grade to sign = " + toString(polyDefault->getGradeSign()));
+		style.displayStatus("Default constructor ", polyDefault->getName(), "Grade to sign = " + toString(polyDefault->getGradeSign()));
 		style.displayStatus("					", polyDefault->getName(), "Grade to exec = " + toString(polyDefault->getGradeExec()));
 		style.displayStatus("					", polyDefault->getName(), "Target = " + polyDefault->getTarget());
 		style.displayStatus("Parametrized constructor", polyParametrized->getName(), "Grade to sign = " + toString(polyParametrized->getGradeSign()));
@@ -139,7 +139,7 @@ int main()
 		std::cout << std::endl;
 
 		style.headerTable();
-		style.displayStatus("Default constructor", polyDefault->getName(), "Grade to sign = " + toString(polyDefault->getGradeSign()));
+		style.displayStatus("Default constructor ", polyDefault->getName(), "Grade to sign = " + toString(polyDefault->getGradeSign()));
 		style.displayStatus("					", polyDefault->getName(), "Grade to exec = " + toString(polyDefault->getGradeExec()));
 		style.displayStatus("					", polyDefault->getName(), "Target = " + polyDefault->getTarget());
 		style.displayStatus("Parametrized constructor", polyParametrized->getName(), "Grade to sign = " + toString(polyParametrized->getGradeSign()));
@@ -181,58 +181,105 @@ int main()
 
 		std::cout << std::endl;
 	}
+		/* ---------------------------------------------------------- */
+	{
+		std::cout << std::endl;
+
+		/*
+		** srand initializes the random number generator using the current time as a seed.
+		** Since the time is always changing, the generated numbers will change too.
+		*/
+		std::srand(std::time(0));
+
+		style.headerTest("Execution of the 3 different forms");
+		std::cout << std::endl;
+		
+
+		Bureaucrat	bureaucrat("Maximus", 1);
+		ShrubberyCreationForm	shrubbery("home");
+		std::cout << std::endl;
+
+		RobotomyRequestForm		robotomy("home_robotomy");
+		std::cout << std::endl;
+
+		PresidentialPardonForm	presidente("Natalia");
+		std::cout << std::endl;
+		std::cout << std::endl;
+
+		bureaucrat.signForm(shrubbery);
+		bureaucrat.signForm(robotomy);
+		bureaucrat.signForm(presidente);
+		std::cout << std::endl;
+		std::cout << std::endl;
+
+		bureaucrat.executeForm(shrubbery);
+		std::cout << std::endl;
+
+		bureaucrat.executeForm(robotomy);
+		std::cout << std::endl;
+
+		bureaucrat.executeForm(presidente);
+		std::cout << std::endl;
+		
+		std::cout << std::endl;
+	}
 	/* ---------------------------------------------------------- */
-	// style.headerTest("Grade Boundaries (exceptions)");
+    {
+        std::cout << std::endl;
+        style.headerTest("Execution Exceptions and Boundaries (Sad Paths)");
+        
+		Style::TestEntry errorTests[5];
+		int k = 0;
 
-	// Style::TestEntry boundaryTests[5];
-	// int i = 0;
-
-	// try
-	// {
-	// }
-	// catch (std::exception& e)
-	// {
-	// }
-
-	// style.printResultsTable(boundaryTests, i);
-	// std::cout << std::endl;
-	// std::cout << std::endl;
-
-	// /* ---------------------------------------------------------- */
-	// style.headerTest("beSigned Test");
-
-	// Style::TestEntry signedTests[5];
-	// int j = 0;
-
-	// AForm form("contract", 1, 100);
-	// Bureaucrat bureaucrat("Marvin", 1);
-	// Bureaucrat testb("Noob", 150);
-
-	// try
-	// {
-	// 	signedTests[j++] = style.makeEntry("Bureaucrat Status", testb.getName(), true, "Grade = " + toString(testb.getGrade()));
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	signedTests[j++] = style.makeEntry("Bureaucrat Status", testb.getName(), false, e.what());
-	// }
+		Bureaucrat            noob("Noob", 150);
+		Bureaucrat            midLevel("MidLevel", 140);
+        ShrubberyCreationForm shrubbery("Garden");
+		std::cout << std::endl;
 	
+        try
+		{
+			shrubbery.execute(midLevel);
+			errorTests[k++] = style.makeEntry("Exec Unsigned Form", shrubbery.getName(), false, "Executed without signature!");
+		}
+		catch (const std::exception& e)
+		{
+			errorTests[k++] = style.makeEntry("Exec Unsigned Form", shrubbery.getName(), true, e.what());
+		}
 
-	// testb.signForm(form);
-	// signedTests[j++] = style.makeEntry("Form After Noob try", form.getName(), true, "Signed Status = " + toString(form.getIsSigned()));
-	// std::cout << std::endl;
+        try
+		{
+			shrubbery.beSigned(noob);
+			errorTests[k++] = style.makeEntry("Sign Low Grade", shrubbery.getName(), false, "Signed with grade 150!");
+		}
+		catch (const std::exception& e)
+		{
+			errorTests[k++] = style.makeEntry("Sign Low Grade", shrubbery.getName(), true, e.what());
+		}
 
-	// bureaucrat.signForm(form);
-	// signedTests[j++] = style.makeEntry("Form After Marvin try", form.getName(), true, "Signed Status = " + toString(form.getIsSigned()));
-	// std::cout << std::endl;
-		
-	// style.printResultsTable(signedTests, j);
-	// std::cout << std::endl;
-	// std::cout << std::endl;
+        try
+		{
+			shrubbery.beSigned(midLevel);
+			errorTests[k++] = style.makeEntry("Sign Valid Grade", shrubbery.getName(), true, "Signed successfully");
+		}
+		catch (const std::exception& e)
+		{
+			errorTests[k++] = style.makeEntry("Sign Valid Grade", shrubbery.getName(), false, e.what());
+		}
 
-	// /* ---------------------------------------------------------- */
-	// style.headerTest("operator<<");
-		
-	// std::cout << std::endl;
-	// return (0);
+		try
+		{
+			shrubbery.execute(midLevel);
+			errorTests[k++] = style.makeEntry("Exec Low Grade", shrubbery.getName(), false, "Executed with grade 140!");
+		}
+		catch (const std::exception& e)
+		{
+			errorTests[k++] = style.makeEntry("Exec Low Grade", shrubbery.getName(), true, e.what());
+		}
+
+		style.printResultsTable(errorTests, k);
+        std::cout << std::endl;
+    }
+	
+	std::cout << std::endl;
+	return (0);
 }

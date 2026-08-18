@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 14:41:33 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/17 22:49:18 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/18 13:53:40 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class Bureaucrat;
 
 class AForm
 {
+	protected:
+		void	checkExecute(const Bureaucrat&) const;
 	private:
 		const std::string	_nameForm;
 		bool				_isSigned;
@@ -32,14 +34,8 @@ class AForm
 		AForm& operator=(const AForm&);
 		virtual ~AForm();
 
-		/*
-		** Parametrized Constructor
-		*/
 		AForm(const std::string&, const int, const int);
 
-		/*
-		** AForm::GradeTooHighException
-		*/
 		class GradeTooHighException : public std::exception
 		{
 			private:
@@ -51,9 +47,6 @@ class AForm
 				virtual	const char* what() const throw();
 		};
 		
-		/*
-		** AForm::GradeTooLowException
-		*/
 		class GradeTooLowException : public std::exception
 		{
 			private:
@@ -61,6 +54,17 @@ class AForm
 			public:
 				GradeTooLowException(const std::string&);
 				virtual	~GradeTooLowException() throw();
+
+				virtual	const char* what() const throw();	
+		};
+
+		class FormUnsignedException : public std::exception
+		{
+			private:
+				const	std::string	_messageForm;
+			public:
+				FormUnsignedException(const std::string&);
+				virtual	~FormUnsignedException() throw();
 
 				virtual	const char* what() const throw();	
 		};

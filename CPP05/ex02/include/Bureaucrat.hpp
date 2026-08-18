@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 12:34:18 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/17 22:49:21 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/18 13:05:05 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,8 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat&);
 		~Bureaucrat();
 
-		/*
-		** Initialize Parameterized
-		*/
 		Bureaucrat(const std::string&, int);
 
-		/*
-		** Custom exceptions classes stay inside our class and
-		** they inherit from the std::exception class fom c++ library
-		*/
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -69,6 +62,7 @@ class Bureaucrat
 		void				decrementGrade();
 
 		void			 	signForm(AForm&) const;
+		void 				executeForm(AForm const & form) const;
 
 };
 

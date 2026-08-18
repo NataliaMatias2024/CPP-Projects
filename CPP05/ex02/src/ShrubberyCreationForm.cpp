@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 16:10:49 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/17 23:31:43 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/18 15:14:35 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,20 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
+	this->checkExecute(executor);
 
+	std::string fileName = this->getTarget() + "_shrubbery";
+	std::ofstream outFile(fileName.c_str());
+	if (!outFile.is_open())
+		std::cerr << "Error: Could not create the output file "<< fileName << std::endl;
+
+	outFile << "    *    " << std::endl;
+   	outFile << "   ***   " << std::endl;
+    outFile << "  *****  " << std::endl;
+    outFile << " ******* " << std::endl;
+    outFile << "   | |   " << std::endl;
+
+	outFile.close();
 }
 
 const std::string ShrubberyCreationForm::getTarget() const

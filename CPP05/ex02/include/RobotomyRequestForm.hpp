@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 20:48:57 by namatias          #+#    #+#             */
-/*   Updated: 2026/08/17 23:19:00 by namatias         ###   ########.fr       */
+/*   Updated: 2026/08/18 15:14:22 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 #include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm
