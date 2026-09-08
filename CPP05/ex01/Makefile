@@ -6,7 +6,7 @@
 #    By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/12 10:49:08 by namatias          #+#    #+#              #
-#    Updated: 2026/08/15 17:37:13 by namatias         ###   ########.fr        #
+#    Updated: 2026/09/08 11:06:50 by namatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 NAME = bureaucrat
 
 CPP = c++
-CPPFLAGS = -Wall -Werror -Werror -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 OBJ_DIR = ./obj/
 INC_DIR = ./include/
