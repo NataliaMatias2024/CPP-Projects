@@ -6,7 +6,7 @@
 #    By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/21 14:26:04 by namatias          #+#    #+#              #
-#    Updated: 2026/07/21 19:02:35 by namatias         ###   ########.fr        #
+#    Updated: 2026/09/09 14:03:19 by namatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 NAME = ScavTrap
 
 CPP = c++
-CPPFLAGS = -Wall -Werror -Werror -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 OBJ_DIR = ./obj/
 INC_DIR = ./include/

@@ -6,7 +6,7 @@
 #    By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/24 12:34:35 by namatias          #+#    #+#              #
-#    Updated: 2026/07/24 19:04:03 by namatias         ###   ########.fr        #
+#    Updated: 2026/09/09 14:03:36 by namatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 NAME = Animals
 
 CPP = c++
-CPPFLAGS = -Wall -Werror -Werror -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 OBJ_DIR = ./obj/
 INC_DIR = ./include/
