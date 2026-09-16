@@ -6,7 +6,7 @@
 #    By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/10 14:00:58 by namatias          #+#    #+#              #
-#    Updated: 2026/09/10 14:25:54 by namatias         ###   ########.fr        #
+#    Updated: 2026/09/11 15:23:54 by namatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ INC_DIR = ./include/
 SRC_DIR = ./src/
 
 SRC_FILES = main.cpp \
-
+			ScalarConverter.cpp \
 
 OBJS = 		$(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 INCLUDES =	-I $(INC_DIR)
