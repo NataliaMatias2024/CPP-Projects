@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 14:26:51 by namatias          #+#    #+#             */
-/*   Updated: 2026/09/18 10:07:24 by namatias         ###   ########.fr       */
+/*   Updated: 2026/09/18 13:37:54 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <string>
+#include <string>   // std::str_c
 #include <iomanip>  // std::setprecision
-#include <cstdlib> // Para strtol, strtod
-#include <cctype>  // Para isdigit, isprint
+#include <cstdlib> // Para strtod
+#include <cctype>  // Para isprint
 #include <limits>  // Para numeric_limits
-#include <cerrno> // Verifica limites na conversao para double 
+#include <cerrno> // Verifica limites na conversao para double
 
 
 /*
