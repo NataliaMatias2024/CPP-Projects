@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 14:26:51 by namatias          #+#    #+#             */
-/*   Updated: 2026/09/16 11:15:18 by namatias         ###   ########.fr       */
+/*   Updated: 2026/09/18 10:07:24 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <iostream>
 #include <string>
+#include <iomanip>  // std::setprecision
 #include <cstdlib> // Para strtol, strtod
 #include <cctype>  // Para isdigit, isprint
 #include <limits>  // Para numeric_limits
-#include <cmath>   // Para std::floor (ajuda a imprimir os .0 de forma segura)
+#include <cerrno> // Verifica limites na conversao para double 
+
 
 /*
 ** In cases where we do not want our class to be instantiated,
