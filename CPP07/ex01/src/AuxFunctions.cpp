@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AuxFunctions.tpp                                   :+:      :+:    :+:   */
+/*   AuxFunctions.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/25 14:29:57 by namatias          #+#    #+#             */
-/*   Updated: 2026/09/25 22:21:28 by namatias         ###   ########.fr       */
+/*   Created: 2026/09/25 22:19:39 by namatias          #+#    #+#             */
+/*   Updated: 2026/09/25 22:21:38 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AuxFunctions.hpp"
 
-template <typename T>
-void print(const T& t)
+void toUpperInPlace(char &c)
 {
-  std::cout << t << std::endl;
+    c = static_cast<char>(std::toupper(c));
 }

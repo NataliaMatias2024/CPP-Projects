@@ -6,7 +6,7 @@
 #    By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/18 16:37:56 by namatias          #+#    #+#              #
-#    Updated: 2026/09/25 21:09:22 by namatias         ###   ########.fr        #
+#    Updated: 2026/09/25 22:19:54 by namatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ INC_DIR = ./include/
 SRC_DIR = ./src/
 
 SRC_FILES = main.cpp \
+			AuxFunctions.cpp 
 
 OBJS = 		$(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 INCLUDES =	-I $(INC_DIR)
