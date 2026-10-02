@@ -3,7 +3,7 @@
 </h1>
 
 # 🧠 CPP Module 05 - @42SP
-**Score:** 
+**Score:** 100/100
 
 This repository contains the fifth module of the C++ curriculum at [42 São Paulo](https://www.42sp.org.br/).
 The focus of this module is to deeply understand exception handling (`try`, `catch`, `throw`), abstract classes, and advanced object instantiation using member function pointers in C++98.
