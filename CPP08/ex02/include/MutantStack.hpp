@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 15:51:57 by namatias          #+#    #+#             */
-/*   Updated: 2026/09/30 17:49:18 by namatias         ###   ########.fr       */
+/*   Updated: 2026/10/02 11:41:38 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class MutantStack : public std::stack<T, Container>
 {
     public:
         MutantStack(): std::stack<T, Container>() {}
-		MutantStack(const MutantStack& obj): std::stack<T, Container>(&obj) {}
+		MutantStack(const MutantStack& obj): std::stack<T, Container>(obj) {}
 		MutantStack& operator=(const MutantStack& obj)
 		{
 			if (this != &obj)

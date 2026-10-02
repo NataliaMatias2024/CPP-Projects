@@ -6,7 +6,7 @@
 /*   By: namatias <namatias@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 15:51:18 by namatias          #+#    #+#             */
-/*   Updated: 2026/09/30 17:49:23 by namatias         ###   ########.fr       */
+/*   Updated: 2026/10/02 12:50:26 by namatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main()
 {
 	{
-		std::cout << "=== Subject Test ===" << std::endl;
+		std::cout << "\n=== Subject Test ===" << std::endl;
 
 		MutantStack<int> mstack;
 		mstack.push(5);
@@ -47,37 +47,35 @@ int main()
 		}
 		std::stack<int> s(mstack);
 	}
+
 	{
-		std::cout << "=== My Test ===" << std::endl;
+		std::cout << "\n=== Random Elements & Iterators Test ===" << std::endl;
 		std::srand(std::time(0));
 
 		MutantStack<int> myTest;
-
-		for (unsigned int i = 0; i < 10; ++i)
+		for (unsigned int i = 0; i < 5; ++i)
 			myTest.push(std::rand() % 100);
 
-		MutantStack<int>::iterator it = myTest.begin();
-		MutantStack<int>::iterator ite = myTest.end();
-
-		std::cout << "=== Stack Created with Random Numbers ===" << std::endl;
-		while (it != ite)
-		{
+		std::cout << "Printing random MutantStack:" << std::endl;
+		for (MutantStack<int>::iterator it = myTest.begin(); it != myTest.end(); ++it)
 			std::cout << *it << std::endl;
-			++it;
-		}
+		std::cout << std::endl;
+	}
 
-		// std::cout << "=== Testing the const interators ===" << std::endl;
-		// const MutantStack<int> constMyTest = myTest;
+	{
+		std::cout << "\n=== Const Iterator Safety Test ===" << std::endl;
 
-		// MutantStack<int>::const_iterator it = myTest.begin();
-		// MutantStack<int>::const_iterator ite = myTest.end();
+		MutantStack<int> mstack;
+		mstack.push(10);
+		mstack.push(20);
+		mstack.push(30);
 
-		// std::cout << "=== Stack Created with Random Numbers ===" << std::endl;
-		// while (it != ite)
-		// {
-		// 	std::cout << *it << std::endl;
-		// 	++it;
-		// }
+		const MutantStack<int>& constStack = mstack;
+
+		std::cout << "Printing const Stack with const iterators:" << std::endl;
+		for (MutantStack<int>::const_iterator cit = constStack.begin(); cit != constStack.end(); ++cit)
+			std::cout << *cit << std::endl;
+		std::cout << std::endl;
 	}
 	return 0;
 }
