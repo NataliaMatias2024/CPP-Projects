@@ -2,15 +2,15 @@
     <img alt="cpp02" width="200px" src="https://raw.githubusercontent.com/NataliaMatias2024/42-project-badges/main/badges/cppe.png">
 </h1>
 
-# 🧠 CPP Module 02 - @42SP
+# 🧠 CPP Module 03 - @42SP
 **Score:** 80/100 (100% Mandatory Part Completed) ✅
 
-This repository contains the third module of the C++ curriculum at [42 São Paulo](https://www.42sp.org.br/).
-The focus of this module is to introduce the **Orthodox Canonical Class Form**, Ad-hoc polymorphism (overloading), and the implementation of a custom **Fixed-Point number** class to understand how machines handle fractional numbers at the bitwise level without relying on floating-point hardware.
+This repository contains the fourth module (Module 03) of the C++ curriculum at [42 São Paulo](https://www.42sp.org.br/). 
+The core focus of this module is to introduce **Inheritance** in Object-Oriented Programming, demonstrating how derived classes can reuse, extend, and override properties and behaviors from a base class.
 
 ## 🚀 Objectives
-The main goal is to transition away from basic object-oriented concepts and dive deep into C++ specific features. 
-You will learn to construct classes robustly using the Orthodox Canonical Form and manipulate memory at the bit level to represent fractional numbers, bypassing the standard floating-point types to grasp deterministic precision.
+The main goal is to build a hierarchy of robotic characters (`ClapTrap`, `ScavTrap`, and `FragTrap`). 
+Through this project, you learn how object lifecycles work during inheritance (constructor/destructor chaining) and how to properly use the `protected` access modifier to maintain encapsulation while allowing child classes to manipulate base data.
 
 ## 🛠️ Technologies and Concepts
 <div align="left">
@@ -18,25 +18,27 @@ You will learn to construct classes robustly using the Orthodox Canonical Form a
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
 </div>
 
-> - **Orthodox Canonical Form:** Ensuring safe copies and proper resource management by implementing the Rule of Four (Default Constructor, Copy Constructor, Copy Assignment Operator, Destructor).
-> - **Ad-hoc Polymorphism:** Implementing operator overloading to define custom behaviors for arithmetic and assignment operations.
-> - **Fixed-Point Numbers:** Simulating floating-point precision using integers and bit-shifting operations to guarantee deterministic outcomes across different architectures.
+> - **Inheritance:** Creating derived classes that inherit attributes and methods from a base class to avoid code duplication.
+> - **Constructor Chaining:** Understanding the strict order of object creation (base builds first, derived builds second) and destruction (from outside in).
+> - **Protected Modifiers:** Using `protected` to allow derived classes to access base attributes while keeping them strictly hidden from external code.
+> - **Orthodox Canonical Form:** Applying the Rule of Four to derived classes while correctly invoking base class operators and constructors.
 
 ## 📁 Project Structure
 
 ```bash
 .
-├── ex00/                  # My First Class in Orthodox Canonical Form
-│   ├── Makefile           # GNU Make compilation
-│   └── [... files]        # Basic Fixed class with getters and setters
+├── ex00/
+│   ├── Makefile           
+│   └── [... files]        # ClapTrap base class implementation and lifecycle tests.
 │
-├── ex01/                  # Towards a more useful fixed-point number class
+├── ex01/
 │   ├── Makefile
-│   └── [... files]        # Int/Float constructors, toInt(), toFloat(), and bitwise magic
+│   └── [... files]        # ScavTrap class inheriting from ClapTrap, overriding attack(), and adding guardGate()[cite: 19].
 │
-├── ex02/                  # Now we're talking (Operator Overloading)
+├── ex02/
 │   ├── Makefile
-│   └── [... files]        # Full math, comparisons, and min/max implementations
+│   └── [... files]        # FragTrap class inheriting from ClapTrap, implementing highFivesGuys()[cite: 19].
+└──
 └──
 ```
 
@@ -48,7 +50,7 @@ You need a C++ compiler (c++, clang++, or g++) and make installed.
 Navigate to any exercise folder (from ex00 to ex02) and run make:
 
 ```bash
-	$cd ex01
+	$cd ex02
 	$ make
 ```
 
@@ -56,11 +58,11 @@ Navigate to any exercise folder (from ex00 to ex02) and run make:
 Each exercise generates its own executable, testing the specific behavior of the Fixed class. For example, running ex02:
 
 ```bash
-	$ ./bureaucrat
+	$ ./FragTrap
 ```
 
 ## 🧠 Key Learnings & AI Mentorship
-- *The Orthodox Canonical Form:* Understanding why the compiler's default shallow copies are dangerous, and how the Rule of Three/Four (Constructor, Copy, Assignment, Destructor) is critical for object safety and deep copying.
-- *Fixed-Point Mathematics:* Grasping the physical limitations of variables. Learning how to shift bits left (<<) to reserve space for fractional parts, and right (>>) to truncate them, combining roundf and casting to prevent precision loss (the "fractional crumbs").
-- *Return Types and Const Correctness:* Discovering the architectural reasons behind returning Fixed& (reference) for assignments/prefix increments versus returning Fixed (by value/copy) for arithmetic operations and postfix increments (to prevent memory leaks from temporary objects).
-- *AI as a Senior Mentor:* I used an AI assistant to dissect the low-level behavior of C++, specifically breaking down the "illusion" of the implicit this pointer in overloaded operators, clarifying the dummy int parameter used to distinguish postfix from prefix increments, and ensuring my technical vocabulary met the "Gold Standard" before the evaluation.
+- *The Custom Style Class:* To make peer evaluations, I developed a custom Style class that formats the terminal output into clean, dynamic tables. This effectively isolates the testing noise, strictly proving the proper constructor chaining and the exact attribute math (Hit Points, Energy Points, Attack Damage) without terminal clutter.
+- *Method Overriding vs Reusing:* Understanding when to explicitly override a base method (like attack() in ScavTrap to print a specific message) versus letting the derived class natively use the base method (like FragTrap inheriting attack() directly to promote true code reuse).
+- *Encapsulation Balance:* Realizing that private is too restrictive for inheritance, and public breaks encapsulation. The protected keyword is the exact middle ground required for solid OOP architecture.
+- *AI as a Senior Mentor:* I used an AI assistant to dissect the low-level behavior of C++ and ensuring my technical vocabulary met the "Gold Standard" before the evaluation.
